@@ -22,3 +22,6 @@
 
 # Ignore Sublime files
 *.sublime*
+
+# Ignore SimpleCov files
+coverage
