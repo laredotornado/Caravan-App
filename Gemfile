@@ -76,3 +76,6 @@ gem "time_difference"
 
 # Useful for big data transactions
 gem "activerecord-import"
+
+# SimpleCov for test coverage
+gem 'simplecov', :require => false, :group => :test
