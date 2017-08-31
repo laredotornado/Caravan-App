@@ -1,3 +1,25 @@
+<main id="header">
+	<h1 class="title">Transit Network</h1>
+  <ul class="menu" role="navigation">
+		<li><i class="fa fa-user-circle-o"></i>   Log In</li>
+		<li><i class="fa fa-user-plus"></i>   Sign Up</li>
+    <li><i class="fa fa-home" aria-hidden="true"></i>   <%= link_to('Home', "/") %></li>
+    <li><i class="fa fa-bell-o"></i>   Notifications</li>
+    <li><i class="fa fa-envelope-o"></i>   Messages</li>
+    <li class="report"><button>Report Problem</button></li>
+		<form>
+		<%= form_tag(search_path, :method => "get", id: "search-form") do %>
+			<%= text_field_tag :q, params[:q], placeholder: "Search Stops or Lines" %>
+			<%= submit_tag "", :name => nil %>
+		<% end %>
+		<i class="fa fa-search"></i>
+		</form>
+  </ul>
+</main>
+
+
+
+<!--
 <header class="headbar">
 	<div class="hamburger"></div>
 	<a href="/">
@@ -29,3 +51,4 @@
 		<% end %>
 	</ul>
 </div>
+-->
