@@ -13,19 +13,22 @@
 
   <body>
   	<%= render "shared/header" %>
+    <!--
+    <div class="notices">
+      <% if notice %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+    </div>
 
-    <% if notice %>
-      <p class="notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
 
     <% if current_user %>
       <%= link_to new_issue_path() do %>
         <div class="create-issue"></div>
       <% end %>
-    <% end %>
+    <% end %>-->
 
     <%= yield %>
   </body>

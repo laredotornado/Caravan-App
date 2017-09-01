@@ -1,54 +1,58 @@
 <main id="header">
-	<h1 class="title">Transit Network</h1>
-  <ul class="menu" role="navigation">
-		<li><i class="fa fa-user-circle-o"></i>   Log In</li>
-		<li><i class="fa fa-user-plus"></i>   Sign Up</li>
-    <li><i class="fa fa-home" aria-hidden="true"></i>   <%= link_to('Home', "/") %></li>
-    <li><i class="fa fa-bell-o"></i>   Notifications</li>
-    <li><i class="fa fa-envelope-o"></i>   Messages</li>
-    <li class="report"><button>Report Problem</button></li>
-		<form>
-		<%= form_tag(search_path, :method => "get", id: "search-form") do %>
-			<%= text_field_tag :q, params[:q], placeholder: "Search Stops or Lines" %>
-			<%= submit_tag "", :name => nil %>
+	<div class="title">
+		<h1 id="transit">Transit Network</h1>
+	</div>
+	<ul class="menu" role="navigation">
+		<% if current_user %>
+		<!-- if signed in, user can see home page of all lines, those with issues are indicated as such with something ? -->
+		<li class="nav-item"><i class="fa fa-home"></i><%= link_to('Home', lines_path) %></li>
+
+		<!-- the user icon is to click on personal account info for edit, to see past issues reported, etc. -->
+		<li class="nav-item"><i class="fa fa-user-circle-o"></i><%= link_to('Account', lines_path) %></li>
+
+		<!-- the user can click on favorites to get list of favorites or to unfavorite a stop
+		HOWEVER, WHY would I want to be favoriting a stop anyways, what is it doing for me ? -->
+		<!--<li class="nav-item"><i class="fa fa-heart"></i><%= link_to('Favorite Stops', favorites_path) %></li>-->
+
+		<!-- notifications is where a notification appears if one of your issues reported
+		was recieved and/or resolved -->
+		<li class="nav-item"><i class="fa fa-bell-o"></i>Notifications</li>
+
+		<!-- messages is same as above but for more complicated scenarios where a lengthier message can be sent
+		CONSIDER sending an auto generated message that an issue was recieved, notifications for when its resolved or canceled per user or otherwise -->
+		<li class="nav-item"><i class="fa fa-envelope-o"></i>Messages</li>
+		<li class="nav-item"><i class="fa fa-sign-out"></i><%= link_to('Log Out', destroy_user_session_path, :method => :delete) %></li>
+		<li class="nav-item"><button>Report Issue</button></li>
+		<!-- the icon for search can be clickable where the search bar will slide out for input -->
+		<i class='fa fa-4x fa-search'></i>
+		<% else %>
+		<li class="nav-item"><i class="fa fa-home"></i><%= link_to('About', page_path(:page_name => 'about')) %></li>
+		<li class="nav-item"><i class="fa fa-user-circle-o"></i><%= link_to('Sign In', new_user_session_path) %></li>
+		<li class="nav-item"><i class="fa fa-user-plus"></i><%= link_to('Sign Up', new_user_registration_path) %></li>
+		<li id="search-bar">
+			<form>
+				<%= form_tag(search_path, :method => "get") do %>
+				<%= text_field_tag :q, params[:q], placeholder: "Search Issues", :class => "input-field"%>
+				<%#= submit_tag "", :name => nil %>
+				<!-- I would like to use the icon as a submit button -->
+				<i class='fa fa-4x fa-search'></i>
+				<% end %>
+			</form>
+		</li>
 		<% end %>
-		<i class="fa fa-search"></i>
-		</form>
-  </ul>
+	</ul>
 </main>
 
 
-
-<!--
-<header class="headbar">
-	<div class="hamburger"></div>
-	<a href="/">
-		<div class="title">Transit Network</div>
-	</a>
-	<div class= "search"></div>
-</header>
+<!-- idea - I would like to use the icon for search to be a clickable
+feature that makes the search field slide out and then
+if clicked again it will slide back in, nvm changed mind
+if the person clicks and it slides out and the start typing
+then the search icon changes to a submit|cancel button
 
 <div class="overlay-search">
-	<%= form_tag(search_path, :method => "get", id: "search-form") do %>
-		<%= text_field_tag :q, params[:q], placeholder: "Search Stops or Lines" %>
-		<%= submit_tag "", :name => nil %>
-	<% end %>
-</div>
-
-<div class="side-menu-overlay"></div>
-<div class="side-menu">
-	<div class="title">Transit Network Menu</div>
-	<ul>
-		<li><%= link_to('Home', "/") %> </li>
-		<li><%= link_to('All Lines', lines_path) %> </li>
-		<li><%= link_to('About', page_path(:page_name => 'about')) %></li>
-		<% if current_user %>
-			<li><%= link_to('Favorite Stops', favorites_path) %></li>
-			<li><%= link_to('Log Out', destroy_user_session_path, :method => :delete) %></li>
-		<% else %>
-			<li><%= link_to('Sign In', new_user_session_path) %></li>
-			<li><%= link_to('Sign Up', new_user_registration_path) %></li>
-		<% end %>
-	</ul>
-</div>
--->
+<%= form_tag(search_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :q, params[:q], placeholder: "Search Stops or Lines" %>
+<%= submit_tag "", :name => nil %>
+<% end %>
+</div> -->

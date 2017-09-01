@@ -23,41 +23,17 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	margin: 0px;
 	display: flex;
+	flex-direction: column;
 }
 
 .page-container {
+	display: flex;
+	flex-direction: column;
+	flex-flow:nowrap;
 	margin: 0px 15px;
 }
 
 a {
 	text-decoration: none;
 	color: rgba(117,117,117 ,1);
-}
-
-body > a > .create-issue {
-	position: fixed;
-	height: 40px;
-	width: 40px;
-	bottom: 10px;
-	background: #58b7ff;
-	right: 10px;
-	border-radius: 20px;
-	background-image: url(asset-path('plus.svg'));
-	background-size: 60%;
-	background-position: center;
-	background-repeat: no-repeat;
-
-}
-
-.create-issue {
-	display: inline-block;
-	height: 14px;
-	width: 14px;
-	background: #58b7ff;
-	border-radius: 7px;
-	background-image: url(asset-path('plus.svg'));
-	background-size: 60%;
-	background-position: center;
-	background-repeat: no-repeat;
-	z-index: 2;
 }

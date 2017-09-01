@@ -1,44 +1,43 @@
-<!--
+<%= render "shared/header" %>
 
 <% content_for :title do %> - Dashboard<% end %>
-<%= javascript_include_tag "location" %>
+  <%= javascript_include_tag "location" %>
 
-<div class="page-container">
+  <div class="page-container">
 
     <h2>
-        Nearby Stops
+      Nearby Stops
     </h2>
 
     <div id="stops_near">
-        <% if @nearby_stops %>
-            <% unless @nearby_stops.empty? %>
-                <% @nearby_stops.each do |stop| %>
-                    <%= render "stops/show_with_issues", stop: stop %>
-                <% end %>
-            <% else %>
-                <h3>There seem to be no nearby stops!</h3>
-            <% end %>
-        <% else %>
-            <h3>We can't show you nearby stops without location services allowed!</h3>
-        <% end %>
+      <% if @nearby_stops %>
+      <% unless @nearby_stops.empty? %>
+      <% @nearby_stops.each do |stop| %>
+      <%= render "stops/show_with_issues", stop: stop %>
+      <% end %>
+      <% else %>
+      <h3>There seem to be no nearby stops!</h3>
+      <% end %>
+      <% else %>
+      <h3>We can't show you nearby stops without location services allowed!</h3>
+      <% end %>
     </div>
 
     <% if current_user %>
 
-        <h2>
-        	<%= image_tag "star.svg", width: "30px", class: "star" %>
-        	Favorite Stops
-        </h2>
-        <div id="stops_fav">
-            <% current_user.favorites.each do |stop| %>
-                <%= render "stops/show_with_issues", stop: stop %>
-            <% end %>
-            <% if  current_user.favorites.empty? %>
-                You have no favorite stops! Go to <%= link_to "All Lines", lines_path %> or search for stops to favorite them.
-            <% end %>
-        </div>
+    <h2>
+      <%= image_tag "star.svg", width: "30px", class: "star" %>
+      Favorite Stops
+    </h2>
+    <div id="stops_fav">
+      <% current_user.favorites.each do |stop| %>
+      <%= render "stops/show_with_issues", stop: stop %>
+      <% end %>
+      <% if  current_user.favorites.empty? %>
+      You have no favorite stops! Go to <%= link_to "All Lines", lines_path %> or search for stops to favorite them.
+      <% end %>
+    </div>
     <% end %>
-</div>
+  </div>
 
-<%= new_issue_button %>
--->
+  <%= new_issue_button %>
