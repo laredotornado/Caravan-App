@@ -22,11 +22,10 @@
 .title {
 	display: flex;
 	align-items: center;
-	justify-content: center;
 }
 
 #transit {
-	color: #fff;
+	color: #eee;
 	font-size: 2em;
 	text-align: center;
 	padding-left: .8em;
@@ -98,6 +97,23 @@ i {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+}
+
+#search-bar > form > input[type="text"] {
+	background-color: #eee;
+	z-index: 3;
+	transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+	cursor: pointer;
+}
+
+#search-bar > form > input[type="text"]:focus:hover {
+	border-bottom: 1px solid blue;
+}
+
+#search-bar > form > input[type="text"]:focus {
+	width: 400px;
+	z-index: 1;
+	cursor: text;
 }
 
 /* ICON SIZING */

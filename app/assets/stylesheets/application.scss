@@ -20,10 +20,11 @@
 }
 
 body {
-	font-family: 'Open Sans', sans-serif;
 	margin: 0px;
 	display: flex;
 	flex-direction: column;
+	background-color: #eee;
+	font-family: 'Open Sans', sans-serif;
 }
 
 .page-container {
