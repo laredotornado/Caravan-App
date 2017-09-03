@@ -22,10 +22,13 @@
 		CONSIDER sending an auto generated message that an issue was recieved, notifications for when its resolved or canceled per user or otherwise -->
 		<li class="nav-item"><i class="fa fa-envelope-o"></i>Messages</li>
 		<li class="nav-item"><i class="fa fa-sign-out"></i><%= link_to('Log Out', destroy_user_session_path, :method => :delete) %></li>
-		<li class="nav-item"><button>Report Issue</button></li>
+		<li class="nav-item">
+				<button id="report">Report Issue</button>
+		</li>
 		<!-- the icon for search can be clickable where the search bar will slide out for input -->
 		<i class='fa fa-4x fa-search'></i>
 		<% else %>
+
 		<li class="nav-item"><i class="fa fa-home"></i><%= link_to('About', page_path(:page_name => 'about')) %></li>
 		<li class="nav-item"><i class="fa fa-user-circle-o"></i><%= link_to('Sign In', new_user_session_path) %></li>
 		<li class="nav-item"><i class="fa fa-user-plus"></i><%= link_to('Sign Up', new_user_registration_path) %></li>
