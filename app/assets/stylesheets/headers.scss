@@ -6,10 +6,11 @@ $transit-blue2x: #4692cc;
 $transit-blue5x: #2c5b7f;
 
 $off-white: #eee;
+$opacity-white: rgba(238,238,238,.8);
+
 $light-grey: #ccc;
 $solid-grey: #777;
 $solid-grey2x: #555; /* 2 shades darker */
-$solid-grey5x: #222; /* 5 shades darker */
 
 
 /* DESKTOP STYLES */
@@ -65,12 +66,14 @@ $solid-grey5x: #222; /* 5 shades darker */
 .nav-item {
 	flex-grow: 1;
 	flex-shrink: 0;
+	color: $solid-grey2x;
+	margin-right: 15px;
 	position: relative;
 	text-transform: uppercase;
 }
 
 .nav-item:hover {
-	color: $solid-grey2x;
+	color: $transit-blue5x;
 	cursor: pointer;
 }
 
@@ -79,7 +82,6 @@ $solid-grey5x: #222; /* 5 shades darker */
 	bottom: 0;
 	left: 0;
 	right: 0;
-	margin: auto;
 	width: 0%;
 	content: '.';
 	color: transparent;
@@ -96,14 +98,13 @@ $solid-grey5x: #222; /* 5 shades darker */
 }
 
 .menu li > button {
-	background: none;
+	background-color: $opacity-white;
+	color: $solid-grey2x;
+	border-radius: 3px;
 	border: 0;
 	box-sizing: border-box;
 	margin: 1em;
 	padding: 1em 2em;
-	/* box shadow instead of border */
-	box-shadow: inset 0 0 0 2px $transit-blue;
-	color: $solid-grey;
 	font-size: inherit;
 	font-weight: normal;
 	text-transform: uppercase;
@@ -152,15 +153,15 @@ $solid-grey5x: #222; /* 5 shades darker */
 }
 
 .menu li > button:hover::before {
-	border-top-color: $off-white;
-	border-right-color: $off-white;
+	border-top-color: $solid-grey;
+	border-right-color: $solid-grey;
 	transition: width 0.25s ease-in,
 							height 0.25s ease-in 0.25s;
 }
 
 .menu li > button:hover::after {
-	border-bottom-color: $off-white;
-	border-left-color: $off-white;
+	border-bottom-color: $solid-grey;
+	border-left-color: $solid-grey;
 	transition: border-color 0s ease-in 0.1s,
 	width 0.25s ease-in 0.5s,
 	height 0.25s ease-in 0.25s;
@@ -181,14 +182,73 @@ $solid-grey5x: #222; /* 5 shades darker */
 	}
 
 	.menu {
-    flex-flow: column wrap;
+		display: flex;
+    flex-flow: column;
 		justify-content: center;
+		align-items: center;
     padding: 0;
+		margin: 0;
 		opacity: 0;
 		transition: all 1s ease;
 		visibility: hidden;
 		font-size: 1em;
 		width: 100%;
+	}
+
+	/* MOBILE NAV-ITEMS */
+
+	.nav-item {
+		width: 100%;
+		justify-content: left;
+		align-items: center;
+		color: $solid-grey2x;
+	}
+
+	.nav-item {
+		box-sizing: border-box;
+		border-bottom: 1px solid $transit-blue5x;
+	}
+
+	.nav-item:hover {
+		border-color: none;
+		background-color: $opacity-white;
+		color: $transit-blue5x;
+	}
+
+	/* ID's for NAV-ITEMS */
+
+	#a, #b, #c, #d, #e, #f {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-grow: 1;
+		flex-shrink: 1;
+	}
+
+	#a {
+		flex-grow: 1;
+		flex-shrink: 1;
+		order: 2;
+	}
+
+	#b {
+		order: 3;
+	}
+
+	#c {
+		order: 4;
+	}
+
+	#d {
+		order: 5;
+	}
+
+	#e {
+		order: 6
+	}
+
+	#f {
+		order: 1;
 	}
 
 	/* DOES NOT LOOK GOOD ON EVERY DEVICE, WHEN I WRAP IT FOR FLEXBOX USE, FUNCTIONALITY OF MOBILE MENU BREAKS */
@@ -210,6 +270,13 @@ $solid-grey5x: #222; /* 5 shades darker */
 		transition-property: margin, opacity;
 		transition-duration: 0.2s, 0s;
 		transition-delay: 0.2s;
+	}
+
+	/* REPORT BUTTON */
+	#report {
+		color: $transit-blue5x;
+		background-color: $opacity-white;
+		border-radius: 3px;
 	}
 
 	/* ACTIVE HAMBURGER - MENU IS OPEN */
@@ -266,15 +333,6 @@ $solid-grey5x: #222; /* 5 shades darker */
 		height: 100vh;
 		visibility: visible;
 	}
-
-	.nav-item {
-		width: 90%;
-		/*border: .03px solid #eee;*/
-		justify-content: left;
-		align-items: center;
-		color: #555;
-	}
-
 
 }
 
