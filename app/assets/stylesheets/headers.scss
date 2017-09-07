@@ -217,7 +217,9 @@
 		border-bottom: 1px solid $transit-blue5x;
 	}
 
-	.nav-item:hover {
+/* I was trying to highlight the nav item on touch for mobile UNSURE if this works */
+	.nav-item:hover,
+  .nav-item:focus {
 		border-color: none;
 		background-color: $opacity-white;
 		color: $transit-blue5x;
