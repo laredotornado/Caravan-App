@@ -78,6 +78,9 @@
 	cursor: pointer;
 }
 
+
+/* animated border bottom for active links */
+/*
 .nav-item:not(:last-of-type):after {
 	position: absolute;
 	bottom: 0;
@@ -86,9 +89,9 @@
 	width: 0%;
 	content: '.';
 	color: transparent;
-	background: $off-white;
+	background: $transit-blue2x;
 	height: 1px;
-}
+}*/
 
 .nav-item:hover:after {
 	width: 80%;
@@ -112,8 +115,11 @@
 	/* because I'm setting absolute to pseudo elements */
 	position: relative;
 	vertical-align: middle;
+  cursor: pointer;
 }
 
+/* animated button */
+/*
 .menu li > button::before, .menu li > button::after {
 	box-sizing: inherit;
 	content: '';
@@ -167,7 +173,7 @@
 	width 0.25s ease-in 0.5s,
 	height 0.25s ease-in 0.25s;
 }
-
+*/
 
 /* MOBILE STYLES */
 
