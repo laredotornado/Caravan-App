@@ -73,6 +73,7 @@
 	text-transform: uppercase;
 }
 
+/* currently unable to style for links that are rails link to tags */
 .nav-item:hover {
 	color: $transit-blue5x;
 	cursor: pointer;
