@@ -19,9 +19,7 @@
 			<!-- the user icon is to click on personal account info for edit, to see past issues reported, etc. -->
 			<li id="b"class="nav-item"><i class="fa fa-user-circle-o"></i><%= link_to('Account', lines_path) %></li>
 
-			<!-- Favorites omitted for now but otherwise heart icon is ideal for space.
-			the user can click on favorites to get list of favorites or to unfavorite a stop
-			HOWEVER, WHY would I want to be favoriting a stop anyways, what is it doing for me ? -->
+			<!-- Favorites omitted for now but otherwise heart icon is ideal for space -->
 			<!--<li class="nav-item"><i class="fa fa-heart"></i><%= link_to('Favorite Stops', favorites_path) %></li>-->
 
 			<!-- notifications is where a notification appears if one of your issues reported
@@ -35,22 +33,36 @@
 			<li id="f" class="nav-item report-button">
 					<button id="report">Report Issue</button>
 			</li>
-			<i class='fa fa-4x fa-search'></i>
+
+			<li id="search-wrap">
+	 			<form method="get">
+					<input id="search" name="query" type="text" placeholder="Search...">
+		 			<i class='fa fa-4x fa-search'></i>
+					<input id="search_submit" value="Rechercher" type="submit">
+				</form>
+			</li>
+
+			<!--<i class='fa fa-4x fa-search'></i>-->
 			<% else %>
 
 			<li class="nav-item"><i class="fa fa-home"></i><%= link_to('About', page_path(:page_name => 'about')) %></li>
 			<li class="nav-item"><i class="fa fa-user-circle-o"></i><%= link_to('Sign In', new_user_session_path) %></li>
 			<li class="nav-item"><i class="fa fa-user-plus"></i><%= link_to('Sign Up', new_user_registration_path) %></li>
-			<li id="search-bar">
+
+
+
+					<!--<li id="search-bar">
 				<form>
-					<%= form_tag(search_path, :method => "get") do %>
-					<%= text_field_tag :q, params[:q], placeholder: "Search Issues", :class => "input-field"%>
+					<input id="search" name="query" type="text" placeholder="Search...">
+
+					<input id="search-submit" type="submit">
+					<%#= form_tag(search_path, :method => "get") do %>
+					<%#= text_field_tag :q, params[:q], placeholder: "Search Issues", :class => "input-field"%>
 					<%#= submit_tag "", :name => nil %>
-					<!-- I would like to use the icon as a submit button -->
-					<i class='fa fa-4x fa-search'></i>
-					<% end %>
+
+					<%# end %>
 				</form>
-			</li>
+			</li>-->
 			<% end %>
 		</ul>
 
