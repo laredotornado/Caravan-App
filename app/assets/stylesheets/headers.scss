@@ -55,7 +55,7 @@
 	color: $off-white;
 	font-size: 2em;
 	flex-grow: 1;
-	padding-left: .8em;
+	padding-left: 0;
 }
 
 .nav-item,
@@ -269,7 +269,7 @@
 	.title-div {
 		position: absolute;
 		top: 0;
-		left: 30;
+		left: 60px;
 	}
 
 	.label-toggle {
@@ -311,7 +311,7 @@
 		display:  inline-block;
 		width: 30px;
 		height: 30px;
-		margin: 25px;
+		margin: 25px 15px;
 	}
 	.mobile-menu span {
 		margin: 0 auto;
@@ -344,7 +344,7 @@
 
 	#menu-toggle:checked ~ ul {
 		opacity: 1;
-		height: 100vh;
+		height: calc(100vh - 92.5px);
 		visibility: visible;
 	}
 
@@ -362,6 +362,20 @@
 	li {
 		display: block;
 	}
+
+ #search-wrap {
+  flex: 0 0 auto;
+  width: 100%;
+  justify-content: center;
+ }
+}
+
+form {
+  max-width: 700px;
+  padding: 0;
+  height: 33px;
+  position: relative;
+  transition: all .2s ease-out;
 }
 
 
@@ -485,20 +499,24 @@ input, textarea {
      color: #4f2c1d;
      padding: 3px;
      padding-right: 30px;
-     width: 0px;
-     position: absolute;
-     top: 0;
-     right: 0;
-     background: $off-white;
+     width: 30px;
+    position: relative;
+    top: initial;
+    right: initial;
+    background-color: transparent;
      z-index: 3;
-     transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+    border-radius: 0;
+    transition: all .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
      cursor: pointer;
  }
 
  input[type="text"]:focus:hover {
      border-bottom: 1px solid #4f2c1d;
-     background-color: translucent;
      cursor: pointer;
+     background-color: transparent;
+    display: block;
+    width: 100%;
+    box-shadow: none;
  }
 
  input[type="text"]:focus {
@@ -512,12 +530,12 @@ input, textarea {
  input[type="submit"] {
      height: 30px;
      width: 26px;
-     display: inline-block;
+     position: relative;
+      display: none;
      color: #4f2c1d;
      float: right;
      text-indent: -10000px;
      border: none;
-     position: absolute;
      top: 0;
      right: 0;
      z-index: 2;
@@ -527,6 +545,25 @@ input, textarea {
 
  input[type="submit"]:hover {
      opacity: 1;
+ }
+
+ input[type="text"]:focus ~ .fa-search {
+   background-color: transparent;
+ }
+
+ .fa-search {
+   position: absolute;
+    right: 1px;
+    z-index: 0;
+    top: 1px;
+    background-color: $off-white;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: all .2s ease-out;
  }
 
  input, textarea {
@@ -587,4 +624,11 @@ input, textarea {
 }
 .fa-custom{
     font-size:3.2em;
+}
+
+@media screen and (max-width: 350px) {
+  #title {
+    font-size: 1.75em;
+    margin-top: 1em;
+  }
 }
